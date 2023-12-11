@@ -1,0 +1,11 @@
+.scrollbox {
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header {
+  margin-left: 10px;
+  font-size: 20px;
+}
