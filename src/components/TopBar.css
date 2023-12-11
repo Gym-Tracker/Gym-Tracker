@@ -1,11 +1,22 @@
 .topBar {
     height: 50px;
+    width: 100%;
     border-style: solid;
     border-color: rgb(207, 207, 207);
     border-width: 0px 0px 1px 0px;
     display: flex;
     align-items: center;
+    position: fixed;
+    top: 0;
   }
+
+.titleContainer {
+  /* height: 100%; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
   
 .title {
     width: 100%;
