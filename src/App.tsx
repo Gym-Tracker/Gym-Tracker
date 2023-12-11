@@ -1,16 +1,12 @@
 import './App.css'
+import TopBar from './components/TopBar'
+import BottomBar from './components/BottomBar'
 
 function App() {
   return (
     <>
-      <div className='topBar'>
-        <div className='title'>Gym Tracker</div>
-      </div>
-      <div className='bottomBar'>
-        <div className='buttonContainer'>
-          <div className='startWorkoutButton'>Start Workout</div>
-        </div>
-      </div>
+      <TopBar/>
+      <BottomBar/>
     </>
   )
 }
