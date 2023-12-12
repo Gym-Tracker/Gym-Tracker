@@ -5,7 +5,7 @@ import { highestWeightSet } from './WorkoutCardHelper'
 function WorkoutCard({ workout }: { workout: Workout }) {
   return (
     <div className='card'>
-      <div>2 days ago</div>
+      <div>{workout.date.toDateString()}</div>
       <table className='table'>
         <tr>
           <th>Exercise</th>
