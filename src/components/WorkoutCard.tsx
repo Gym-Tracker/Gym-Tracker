@@ -1,54 +1,8 @@
 import './WorkoutCard.css'
 import { Workout } from '../types'
+import { highestWeightSet } from './WorkoutCardHelper'
 
-const workout : Workout = {
-  date: new Date(),
-  duration: 3600,
-  exercises: [
-    {
-      name: "Squat",
-      sets: [
-        {
-          type: 0,
-          weight: 30,
-          reps: 5
-        },
-        {
-          type: 0,
-          weight: 35,
-          reps: 5
-        },
-        {
-          type: 0,
-          weight: 37.5,
-          reps: 8
-        }
-      ]
-    },
-    {
-      name: "Bench Press",
-      sets: [
-        {
-          type: 0,
-          weight: 25,
-          reps: 5
-        },
-        {
-          type: 0,
-          weight: 27.5,
-          reps: 5
-        },
-        {
-          type: 0,
-          weight: 32.5,
-          reps: 8
-        }
-      ]
-    }
-  ]
-}
-
-function WorkoutCard() {
+function WorkoutCard({ workout }: { workout: Workout }) {
   return (
     <div className='card'>
       <div>2 days ago</div>
@@ -57,14 +11,14 @@ function WorkoutCard() {
           <th>Exercise</th>
           <th>Best Set</th>
         </tr>
-        <tr>
-          <td>4 x Squat</td>
-          <td>57.5 kg x 9</td>
-        </tr>
-        <tr>
-          <td>4 x Bench Press</td>
-          <td>30.25 kg x 9</td>
-        </tr>
+        {
+          workout.exercises.map((exercise) =>
+            <tr>
+              <td>{`${exercise.sets.length} x ${exercise.name}`}</td>
+              <td>{`${highestWeightSet(exercise.sets).weight} kg x ${highestWeightSet(exercise.sets).reps}`}</td>
+            </tr>
+          )
+        }
       </table>
     </div>
   )
