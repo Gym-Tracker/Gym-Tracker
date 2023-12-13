@@ -1,7 +1,7 @@
 import './App.css'
 import TopBar from './components/TopBar'
 import BottomBar from './components/BottomBar'
-import WorkoutCard from './components/WorkoutCard'
+import WorkoutCard from './components/WorkoutCard/WorkoutCard'
 import { Workout } from './types'
 
 const workout : Workout = {

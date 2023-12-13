@@ -1,5 +1,5 @@
 import './WorkoutCard.css'
-import { Workout } from '../types'
+import { Workout } from '../../types'
 import { highestWeightSet } from './WorkoutCardHelper'
 
 function WorkoutCard({ workout }: { workout: Workout }) {
