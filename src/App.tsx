@@ -3,6 +3,7 @@ import './App.css'
 import TopBar from './components/TopBar'
 import BottomBar from './components/BottomBar'
 import HomeScreen from './components/HomeScreen/HomeScreen'
+import WorkoutScreen from './components/WorkoutScreen/WorkoutScreen'
 
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
       <TopBar/>
       <BottomBar/>
       <div className='scrollbox'>
-        <HomeScreen/>
+        <WorkoutScreen/>
+        {/* <HomeScreen/> */}
       </div>
     </>
   )
