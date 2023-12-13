@@ -1,5 +1,5 @@
 import { highestWeightSet } from './WorkoutCardHelper.ts';
-import { Workout } from '../../types.ts'
+import { Workout } from '../../../types.ts'
 
 const workout : Workout = {
   date: new Date(),
