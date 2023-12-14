@@ -7,7 +7,7 @@ import WorkoutScreen from './components/WorkoutScreen/WorkoutScreen'
 
 
 function App() {
-  const [workuotStarted, setWorkoutStarted] = useState<Boolean>(false);
+  const [workoutStarted, setWorkoutStarted] = useState<Boolean>(false);
 
   return (
     <>
