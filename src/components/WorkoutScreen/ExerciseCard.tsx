@@ -1,9 +1,10 @@
+import { Exercise } from '../../types'
 import './ExerciseCard.css'
 
-export default function ExerciseCard() {
+export default function ExerciseCard({ exercise }: { exercise: Exercise }) {
   return (
     <div className='card'>
-      <div>Squat</div>
+      <div>{exercise.name}</div>
       <table className='table'>
         <tr>
           <th>Set</th>
@@ -11,24 +12,16 @@ export default function ExerciseCard() {
           <th>Reps</th>
           <th>done</th>
         </tr>
-        <tr>
-          <td>1</td>
-          <td><input type="number"/></td>
-          <td><input type="number"/></td>
-          <td><input type="checkbox"/></td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td><input type="number"/></td>
-          <td><input type="number"/></td>
-          <td><input type="checkbox"/></td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td><input type="number"/></td>
-          <td><input type="number"/></td>
-          <td><input type="checkbox"/></td>
-        </tr>
+        {
+          exercise.sets.map((set) =>
+            <tr>
+              <td>{set.type}</td>
+              <td><input type="number" defaultValue={set.weight}/></td>
+              <td><input type="number" defaultValue={set.reps}/></td>
+              <td><input type="checkbox"/></td>
+            </tr>
+          )
+        }
       </table>
     </div>
   )
