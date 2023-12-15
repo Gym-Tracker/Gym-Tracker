@@ -59,15 +59,20 @@ const workout : Workout = {
 
 
 function App() {
-  const [workoutStarted, setWorkoutStarted] = useState<Boolean>(false);
+  const [workoutStarted, setWorkoutStarted] = useState<boolean>(false);
 
   return (
     <>
       <TopBar/>
-      <BottomBar/>
+      <BottomBar
+        workoutStarted={workoutStarted}
+        setWorkoutStarted={setWorkoutStarted}        
+      />
       <div className='scrollbox'>
-        <WorkoutScreen/>
-        {/* <HomeScreen/> */}
+        {workoutStarted
+          ? <WorkoutScreen/>
+          : <HomeScreen/>
+        }
       </div>
     </>
   )
