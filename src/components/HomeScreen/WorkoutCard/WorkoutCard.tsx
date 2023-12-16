@@ -1,12 +1,12 @@
-import './WorkoutCard.css'
+import styles from './WorkoutCard.module.css'
 import { Workout } from '../../../types'
 import { highestWeightSet } from './WorkoutCardHelper'
 
 function WorkoutCard({ workout }: { workout: Workout }) {
   return (
-    <div className='card'>
+    <div className={styles.card}>
       <div>{workout.date.toDateString()}</div>
-      <table className='table'>
+      <table className={styles.table}>
         <tr>
           <th>Exercise</th>
           <th>Best Set</th>

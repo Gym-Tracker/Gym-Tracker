@@ -1,10 +1,10 @@
-import './TopBar.css'
+import styles from './TopBar.module.css'
 
 function TopBar() {
     return (
-      <div className='topBar'>
-        <div className='titleContainer'>
-          <div className='title'>Gym Tracker</div>
+      <div className={styles.topBar}>
+        <div className={styles.titleContainer}>
+          <div className={styles.title}>Gym Tracker</div>
         </div>
       </div>
     )

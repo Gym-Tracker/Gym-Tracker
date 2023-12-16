@@ -1,4 +1,4 @@
-import './BottomBar.css'
+import styles from './BottomBar.module.css'
 
 interface props {
   workoutStarted: boolean,
@@ -13,11 +13,11 @@ export default function BottomBar({ workoutStarted, setWorkoutStarted }: props) 
   }
 
   return (
-    <div className='bottomBar'>
-      <div className='buttonContainer'>
+    <div className={styles.bottomBar}>
+      <div className={styles.buttonContainer}>
         {workoutStarted
-          ? <div className='workoutButton stopWorkout' onClick={toggleWorkout}>Stop Workout</div>
-          : <div className='workoutButton startWorkout' onClick={toggleWorkout}>Start Workout</div>
+          ? <div className={`${styles.workoutButton} ${styles.stopWorkout}`} onClick={toggleWorkout}>Stop Workout</div>
+          : <div className={`${styles.workoutButton} ${styles.startWorkout}`} onClick={toggleWorkout}>Start Workout</div>
         }
       </div>
     </div>

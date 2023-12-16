@@ -1,11 +1,11 @@
 import { Exercise } from '../../types'
-import './ExerciseCard.css'
+import styles from './ExerciseCard.module.css'
 
 export default function ExerciseCard({ exercise }: { exercise: Exercise }) {
   return (
-    <div className='card'>
+    <div className={styles.card}>
       <div>{exercise.name}</div>
-      <table className='table'>
+      <table className={styles.table}>
         <tr>
           <th>Set</th>
           <th>kg</th>
