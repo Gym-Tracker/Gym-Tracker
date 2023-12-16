@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import styles from './MaxWeightSettings.module.css'
+import { useState } from 'react';
+import styles from './MaxWeightSettings.module.css';
 import Input from './Input';
 
 
@@ -33,10 +33,10 @@ export default function MaxWeightSettings() {
         </tr>
         <tr>
           <td>TM</td>
-          <td><input type="number" defaultValue={123}/></td>
-          <td><input type="number" defaultValue={123}/></td>
-          <td><input type="number" defaultValue={123}/></td>
-          <td><input type="number" defaultValue={123}/></td>
+          <td><input type="number" value={squatTM}/></td>
+          <td><input type="number" value={benchTM}/></td>
+          <td><input type="number" value={deadliftTM}/></td>
+          <td><input type="number" value={pressTM}/></td>
         </tr>
       </table>
     </div>
