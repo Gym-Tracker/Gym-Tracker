@@ -23,7 +23,7 @@ function App() {
           : <HomeScreen/>
         }
       </div>
-      { settingsOpen && <MaxWeightSettings/> }
+      { settingsOpen && <MaxWeightSettings setSettingsOpen={setSettingsOpen}/> }
     </>
   )
 }

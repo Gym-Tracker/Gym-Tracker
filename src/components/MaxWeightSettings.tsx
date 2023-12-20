@@ -3,8 +3,11 @@ import styles from './MaxWeightSettings.module.css';
 import Input from './Input';
 import Form from './Form';
 
+interface props {
+  setSettingsOpen: React.Dispatch<React.SetStateAction<boolean>>
+}
 
-export default function MaxWeightSettings() {
+export default function MaxWeightSettings({ setSettingsOpen }: props) {
   const [squat1RP, setSquat1RP] = useState<number>(0);
   const [bench1RP, setBench1RP] = useState<number>(0);
   const [deadlift1RP, setDeadlift1RP] = useState<number>(0);
@@ -16,7 +19,10 @@ export default function MaxWeightSettings() {
   const [pressTM, setPressTM] = useState<number>(0);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.card}>
+      <div className={styles.closeContainer}>
+        <div onClick={() => setSettingsOpen(false)}>Close</div>
+      </div>
       <table className={styles.table}>
         <tr>
           <th></th>
