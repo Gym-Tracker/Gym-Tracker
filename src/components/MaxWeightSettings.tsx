@@ -40,6 +40,9 @@ export default function MaxWeightSettings() {
           <td><Form value={pressTM} setValue={setPressTM}/></td>
         </tr>
       </table>
+      <div className={styles.buttonContainer}>
+        <div className={styles.button}>Save</div>
+      </div>
     </div>
   )
 }
