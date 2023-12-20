@@ -8,10 +8,11 @@ import MaxWeightSettings from './components/MaxWeightSettings'
 
 function App() {
   const [workoutStarted, setWorkoutStarted] = useState<boolean>(false);
+  const [settingsOpen, setSettingsOpen] = useState<boolean>(false);
 
   return (
     <>
-      <TopBar/>
+      <TopBar setSettingsOpen={setSettingsOpen}/>
       <BottomBar
         workoutStarted={workoutStarted}
         setWorkoutStarted={setWorkoutStarted}        
@@ -22,7 +23,7 @@ function App() {
           : <HomeScreen/>
         }
       </div>
-      <MaxWeightSettings/>
+      { settingsOpen && <MaxWeightSettings/> }
     </>
   )
 }
