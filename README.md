@@ -1,10 +1,10 @@
 # Gym Tracker
 A front-end web application for following Jim Wendler's 5/3/1 workout program.
 
-# Prerequisites
+## Prerequisites
 - Yarn v1.22.19
 
-# How to run
+## How to run
 - Install dependencies
   ```
   yarn install
@@ -14,7 +14,7 @@ A front-end web application for following Jim Wendler's 5/3/1 workout program.
   yarn dev
   ```
 
-# Run tests
+## Run tests
 ```
 yarn test
 ```
