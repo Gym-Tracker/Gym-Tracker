@@ -1,4 +1,5 @@
 {
   "name": "Gym Tracker",
-  "display": "standalone"
+  "display": "standalone",
+  "theme_color": "#ffffff"
 }
