@@ -23,6 +23,7 @@ export default function Input({ weight, setWeight, setTM }: props) {
   
   return (
     <input 
+      pattern="[0-9]*"
       type="number"
       value={weight}
       onChange={e => handleChange(e.target.valueAsNumber)}

@@ -16,8 +16,8 @@ export default function ExerciseCard({ exercise }: { exercise: Exercise }) {
           exercise.sets.map((set) =>
             <tr>
               <td>{set.type}</td>
-              <td><input type="number" defaultValue={set.weight}/></td>
-              <td><input type="number" defaultValue={set.reps}/></td>
+              <td><input pattern="[0-9]*" type="number" defaultValue={set.weight}/></td>
+              <td><input pattern="[0-9]*" type="number" defaultValue={set.reps}/></td>
               <td><input type="checkbox"/></td>
             </tr>
           )
