@@ -55,9 +55,19 @@ const workout : Workout = {
 
 
 export default function WorkoutScreen() {
+
+  function submitWorkout() {
+      fetch("http://127.0.0.1:8080/workout", {
+      method: "POST",
+      body: JSON.stringify(workout),
+      headers: { "Content-Type": "application/json" }
+    })
+  }
+
   return (
     <>
       { workout.exercises.map((exercise) => <ExerciseCard exercise={exercise}/>) }
+      <div onClick={submitWorkout}>Submit Workout</div>
     </>
   )
 }
