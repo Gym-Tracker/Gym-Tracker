@@ -56,14 +56,14 @@ export default function HomeScreen() {
     const response = await fetch("http://127.0.0.1:8080/workout");
     const workoutsResponse: Workout[] = await response.json();
 
-    // Date of workout comes as a string a needs to be a Date object
+    // Dates of workouts come as strings and need to be Date objects
     for (let i = 0; i < workoutsResponse.length; i++) {
       workoutsResponse[i].date = new Date(workoutsResponse[i].date);
     }
 
     setWorkouts(workoutsResponse);
   }
-  
+
   return (
     <>
       <div className='header'>Next Workout</div>
