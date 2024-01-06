@@ -6,7 +6,7 @@ const workout : Workout = {
   duration: 3600,
   exercises: [
     {
-      name: "Squat",
+      id: 3,
       sets: [
         {
           type: 0,
@@ -26,7 +26,7 @@ const workout : Workout = {
       ]
     },
     {
-      name: "Bench Press",
+      id: 1,
       sets: [
         {
           type: 0,
