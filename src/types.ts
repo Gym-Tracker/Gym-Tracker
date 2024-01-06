@@ -5,7 +5,7 @@ export interface Workout {
 }
 
 export interface Exercise {
-  name: string;
+  id: number;
   sets: Set[];
 }
 
