@@ -1,10 +1,11 @@
 import { Exercise } from '../../types'
 import styles from './ExerciseCard.module.css'
+import { exercises } from '../../Exercises'
 
 export default function ExerciseCard({ exercise }: { exercise: Exercise }) {
   return (
     <div className={styles.card}>
-      <div>{exercise.name}</div>
+      <div>{exercises.get(exercise.id)}</div>
       <table className={styles.table}>
         <tr>
           <th>Set</th>
