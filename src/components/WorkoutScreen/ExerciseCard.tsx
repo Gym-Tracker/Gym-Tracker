@@ -15,6 +15,17 @@ export default function ExerciseCard({ exercise, updateExercise }: props) {
     updateExercise(newExercise);
   }
 
+  function addSet() {
+    let newExercise: ActiveExercise = exercise;
+    newExercise.sets.push({
+      type: 0,
+      weight: 0,
+      reps: 0,
+      done: false
+    });
+    updateExercise(newExercise);
+  }
+
   return (
     <div className={styles.card}>
       <div>{exercises.get(exercise.id)}</div>
@@ -52,6 +63,7 @@ export default function ExerciseCard({ exercise, updateExercise }: props) {
           )
         }
       </table>
+      <div onClick={addSet}>Add set</div>
     </div>
   )
 }
