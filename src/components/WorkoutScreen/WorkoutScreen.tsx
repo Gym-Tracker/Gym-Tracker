@@ -1,9 +1,8 @@
 import ExerciseCard from "./ExerciseCard"
-import { Workout } from "../../types"
+import { ActiveExercise, ActiveWorkout, ActiveSet, Workout, Routine } from "../../types"
+import { useState } from "react"
 
-const workout : Workout = {
-  date: new Date(),
-  duration: 3600,
+const routine : Routine = {
   exercises: [
     {
       id: 2,
@@ -53,10 +52,35 @@ const workout : Workout = {
   ]
 }
 
+export function routineToActiveWorkout(routine: Routine) {
+  let activeWorkout: ActiveWorkout = {
+    exercises: []
+  }
+
+  for (const exercise of routine.exercises) {
+    let sets: ActiveSet[] = [];
+
+    for (const set of exercise.sets) {
+      sets.push({
+        ...set,
+        done: false
+      })
+    }
+
+    activeWorkout.exercises.push({
+      id: exercise.id,
+      sets: sets
+    })
+  }
+
+  return activeWorkout;
+}
+
 
 export default function WorkoutScreen() {
+  const [activeWorkout, setActiveWorkout] = useState<ActiveWorkout>(routineToActiveWorkout(routine));
 
-  function submitWorkout() {
+  function submitWorkout(workout: Workout) {
       fetch("http://127.0.0.1:8080/workout", {
       method: "POST",
       body: JSON.stringify(workout),
@@ -64,10 +88,23 @@ export default function WorkoutScreen() {
     })
   }
 
+  function updateActiveWorkout(exercise: ActiveExercise, index: number) {
+    let newActiveWorkout = {...activeWorkout};
+    newActiveWorkout.exercises[index] = exercise;
+    setActiveWorkout(newActiveWorkout);
+  }
+  
   return (
     <>
-      { workout.exercises.map((exercise) => <ExerciseCard exercise={exercise}/>) }
-      <div onClick={submitWorkout}>Submit Workout</div>
+      { 
+        activeWorkout.exercises.map((exercise, index) => 
+          <ExerciseCard 
+            exercise={exercise} 
+            updateExercise={(exercise) => updateActiveWorkout(exercise, index)}
+          />
+        )
+      }
+      {/* <div onClick={submitWorkout}>Submit Workout</div> */}
     </>
   )
 }
