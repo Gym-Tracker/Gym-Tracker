@@ -5,6 +5,7 @@ import BottomBar from './components/BottomBar'
 import HomeScreen from './components/HomeScreen/HomeScreen'
 import WorkoutScreen from './components/WorkoutScreen/WorkoutScreen'
 import MaxWeightSettings from './components/MaxWeightSettings'
+import ExerciseList from './components/ExerciseList/ExerciseList'
 
 function App() {
   const [workoutStarted, setWorkoutStarted] = useState<boolean>(false);
@@ -24,6 +25,7 @@ function App() {
         }
       </div>
       { settingsOpen && <MaxWeightSettings setSettingsOpen={setSettingsOpen}/> }
+      <ExerciseList/>
     </>
   )
 }
