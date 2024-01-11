@@ -10,6 +10,7 @@ import ExerciseList from './components/ExerciseList/ExerciseList'
 function App() {
   const [workoutStarted, setWorkoutStarted] = useState<boolean>(false);
   const [settingsOpen, setSettingsOpen] = useState<boolean>(false);
+  const [exerciseListOpen, setExerciseListOpen] = useState<boolean>(false);
 
   return (
     <>
@@ -20,12 +21,12 @@ function App() {
       />
       <div className='scrollbox'>
         {workoutStarted
-          ? <WorkoutScreen/>
+          ? <WorkoutScreen setExerciseListOpen={setExerciseListOpen}/>
           : <HomeScreen/>
         }
       </div>
       { settingsOpen && <MaxWeightSettings setSettingsOpen={setSettingsOpen}/> }
-      <ExerciseList/>
+      { exerciseListOpen && <ExerciseList setExerciseListOpen={setExerciseListOpen}/> }
     </>
   )
 }

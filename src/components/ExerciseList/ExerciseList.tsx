@@ -3,7 +3,11 @@ import { ExerciseDetails } from "../../types";
 import styles from './ExerciseList.module.css'
 import ExerciseInfoCard from "./ExerciseInfoCard";
 
-export default function ExerciseList() {
+interface props {
+  setExerciseListOpen: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export default function ExerciseList({ setExerciseListOpen }: props) {
   const [search, setSearch] = useState<string>("");
   const [filteredExerciseList, setFilteredExercistList] = useState<ExerciseDetails[]>([]);
   const exerciseList = useRef<ExerciseDetails[]>([]);
@@ -32,6 +36,7 @@ export default function ExerciseList() {
   return(
     <>
       <div className={styles.container}>
+        <div onClick={() => setExerciseListOpen(false)}>Close</div>
         <input className={styles.search} value={search} onChange={(e) => handleInputChange(e)}></input>
         { filteredExerciseList.map((exerciseDetails) => 
             <>

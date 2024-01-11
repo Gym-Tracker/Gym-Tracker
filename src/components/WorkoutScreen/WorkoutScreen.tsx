@@ -2,6 +2,10 @@ import ExerciseCard from "./ExerciseCard"
 import { ActiveExercise, ActiveWorkout, ActiveSet, Workout, Routine, Set } from "../../types"
 import { useState } from "react"
 
+interface props {
+  setExerciseListOpen: React.Dispatch<React.SetStateAction<boolean>>
+}
+
 const routine : Routine = {
   exercises: [
     {
@@ -108,7 +112,7 @@ export function activeWorkoutToWorkout(activeWorkout: ActiveWorkout) {
 }
 
 
-export default function WorkoutScreen() {
+export default function WorkoutScreen({ setExerciseListOpen }: props) {
   const [activeWorkout, setActiveWorkout] = useState<ActiveWorkout>(routineToActiveWorkout(routine));
 
   function submitWorkout() {
@@ -135,6 +139,7 @@ export default function WorkoutScreen() {
           />
         )
       }
+      <div onClick={() => setExerciseListOpen(true)}>Add Exercise</div>
       <div onClick={submitWorkout}>Submit Workout</div>
     </>
   )
