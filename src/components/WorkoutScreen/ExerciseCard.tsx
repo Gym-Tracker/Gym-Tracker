@@ -28,7 +28,7 @@ export default function ExerciseCard({ exercise, updateExercise }: props) {
 
   return (
     <div className={styles.card}>
-      <div>{exercises.get(exercise.id)}</div>
+      <div>{exercises[exercise.id]}</div>
       <table className={styles.table}>
         <tr>
           <th>Set</th>
