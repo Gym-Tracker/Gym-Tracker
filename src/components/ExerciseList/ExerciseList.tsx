@@ -38,7 +38,7 @@ export default function ExerciseList({ setExerciseListOpen, selectExercise }: pr
     <>
       <div className={styles.container}>
         <div onClick={() => setExerciseListOpen(false)}>Close</div>
-        <input className={styles.search} value={search} onChange={(e) => handleInputChange(e)}></input>
+        <input inputMode="search" className={styles.search} value={search} onChange={(e) => handleInputChange(e)}></input>
         { filteredExerciseList.map((exerciseDetails) => 
             <>
               <ExerciseInfoCard 
