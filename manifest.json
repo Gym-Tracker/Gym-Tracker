@@ -1,5 +1,12 @@
 {
   "name": "Gym Tracker",
   "display": "standalone",
-  "theme_color": "#ffffff"
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "400x400",
+      "type": "image/png"
+    }
+  ]
 }
