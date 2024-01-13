@@ -46,5 +46,5 @@ export interface ExerciseDetails {
   instructions: string[],
   category: string,
   images: string[],
-  id: string
+  id: number
 }
