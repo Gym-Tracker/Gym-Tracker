@@ -1,44 +1,12 @@
 import ExerciseCard from "./ExerciseCard"
-import { ActiveExercise, ActiveWorkout, ActiveSet, Workout, Routine, Set } from "../../types"
-import { useState } from "react"
+import { ActiveExercise, ActiveWorkout } from "../../types"
+import { activeWorkoutToWorkout } from "../../ExerciseTypeConversions"
 
 interface props {
   setExerciseListOpen: React.Dispatch<React.SetStateAction<boolean>>
   activeWorkout: ActiveWorkout
   setActiveWorkout: React.Dispatch<React.SetStateAction<ActiveWorkout>>
 }
-
-export function activeWorkoutToWorkout(activeWorkout: ActiveWorkout) {
-  let workout: Workout = {
-    date: new Date(),
-    duration: 3600,
-    exercises: []
-  }
-
-  for (const exercise of activeWorkout.exercises) {
-    let sets: Set[] = [];
-
-    for (const set of exercise.sets) {
-      if (set.done == true) {
-        sets.push({
-          type: set.type,
-          weight: set.weight,
-          reps: set.reps
-        });
-      }
-    }
-
-    if (sets.length > 0) {
-      workout.exercises.push({
-        id: exercise.id,
-        sets: sets
-      })
-    }
-  }
-
-  return workout;
-}
-
 
 export default function WorkoutScreen({ setExerciseListOpen, activeWorkout, setActiveWorkout }: props) {
 

@@ -1,5 +1,5 @@
-import { ActiveWorkout, Routine, Workout } from "../../types";
-import { activeWorkoutToWorkout, routineToActiveWorkout } from "./WorkoutScreen";
+import { ActiveWorkout, Routine, Workout } from "./types";
+import { activeWorkoutToWorkout, routineToActiveWorkout } from "./ExerciseTypeConversions";
 
 const routine : Routine = {
   exercises: [

@@ -6,32 +6,10 @@ import HomeScreen from './components/HomeScreen/HomeScreen'
 import WorkoutScreen from './components/WorkoutScreen/WorkoutScreen'
 import MaxWeightSettings from './components/MaxWeightSettings'
 import ExerciseList from './components/ExerciseList/ExerciseList'
-import { ActiveSet, ActiveWorkout, Routine } from './types'
+import { ActiveWorkout } from './types'
 import { routine } from './Routines'
+import { routineToActiveWorkout } from './ExerciseTypeConversions'
 
-export function routineToActiveWorkout(routine: Routine) {
-  let activeWorkout: ActiveWorkout = {
-    exercises: []
-  }
-
-  for (const exercise of routine.exercises) {
-    let sets: ActiveSet[] = [];
-
-    for (const set of exercise.sets) {
-      sets.push({
-        ...set,
-        done: false
-      })
-    }
-
-    activeWorkout.exercises.push({
-      id: exercise.id,
-      sets: sets
-    })
-  }
-
-  return activeWorkout;
-}
 
 function App() {
   const [workoutStarted, setWorkoutStarted] = useState<boolean>(false);
