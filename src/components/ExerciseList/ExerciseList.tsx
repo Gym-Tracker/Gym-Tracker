@@ -5,9 +5,10 @@ import ExerciseInfoCard from "./ExerciseInfoCard";
 
 interface props {
   setExerciseListOpen: React.Dispatch<React.SetStateAction<boolean>>
+  selectExercise: (id: number) => void
 }
 
-export default function ExerciseList({ setExerciseListOpen }: props) {
+export default function ExerciseList({ setExerciseListOpen, selectExercise }: props) {
   const [search, setSearch] = useState<string>("");
   const [filteredExerciseList, setFilteredExercistList] = useState<ExerciseDetails[]>([]);
   const exerciseList = useRef<ExerciseDetails[]>([]);
@@ -40,7 +41,7 @@ export default function ExerciseList({ setExerciseListOpen }: props) {
         <input className={styles.search} value={search} onChange={(e) => handleInputChange(e)}></input>
         { filteredExerciseList.map((exerciseDetails) => 
             <>
-              <ExerciseInfoCard exerciseDetails={exerciseDetails}/>
+              <ExerciseInfoCard exerciseDetails={exerciseDetails} selectExercise={selectExercise}/>
               <div className={styles.divider}></div>
             </>
           ) 
