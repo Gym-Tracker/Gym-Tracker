@@ -26,6 +26,12 @@ function App() {
     })
   }
 
+  function removeExercise(index: number) {
+    setActiveWorkout({
+      exercises: activeWorkout.exercises.slice(0, index).concat(activeWorkout.exercises.slice(index+1))
+    })
+  }
+
   return (
     <>
       <TopBar setSettingsOpen={setSettingsOpen}/>
@@ -35,7 +41,12 @@ function App() {
       />
       <div className='scrollbox'>
         {workoutStarted
-          ? <WorkoutScreen setExerciseListOpen={setExerciseListOpen} activeWorkout={activeWorkout} setActiveWorkout={setActiveWorkout}/>
+          ? <WorkoutScreen 
+              setExerciseListOpen={setExerciseListOpen} 
+              activeWorkout={activeWorkout} 
+              setActiveWorkout={setActiveWorkout}
+              removeExercise={removeExercise}
+            />
           : <HomeScreen/>
         }
       </div>

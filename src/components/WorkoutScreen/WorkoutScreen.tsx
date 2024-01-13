@@ -6,9 +6,10 @@ interface props {
   setExerciseListOpen: React.Dispatch<React.SetStateAction<boolean>>
   activeWorkout: ActiveWorkout
   setActiveWorkout: React.Dispatch<React.SetStateAction<ActiveWorkout>>
+  removeExercise: (index: number) => void 
 }
 
-export default function WorkoutScreen({ setExerciseListOpen, activeWorkout, setActiveWorkout }: props) {
+export default function WorkoutScreen({ setExerciseListOpen, activeWorkout, setActiveWorkout, removeExercise: removeExercise }: props) {
 
   function submitWorkout() {
       fetch("http://127.0.0.1:8080/workout", {
@@ -31,6 +32,7 @@ export default function WorkoutScreen({ setExerciseListOpen, activeWorkout, setA
           <ExerciseCard 
             exercise={exercise} 
             updateExercise={(exercise) => updateActiveWorkout(exercise, index)}
+            removeExercise={() => removeExercise(index)}
           />
         )
       }

@@ -5,9 +5,10 @@ import { exercises } from '../../Exercises'
 interface props {
   exercise: ActiveExercise
   updateExercise: (exercise: ActiveExercise) => void
+  removeExercise: () => void
 }
 
-export default function ExerciseCard({ exercise, updateExercise }: props) {
+export default function ExerciseCard({ exercise, updateExercise, removeExercise: removeExercise }: props) {
 
   function updateSet(set: ActiveSet, index: number) {
     let newExercise: ActiveExercise = exercise;
@@ -34,7 +35,10 @@ export default function ExerciseCard({ exercise, updateExercise }: props) {
 
   return (
     <div className={styles.card}>
-      <div>{exercises[exercise.id]}</div>
+      <div className={styles.headerContainer}>
+        <div>{exercises[exercise.id]}</div>
+        <div className={styles.closeButton} onClick={removeExercise}>X</div>
+      </div>
       <table className={styles.table}>
         <tr>
           <th>Set</th>

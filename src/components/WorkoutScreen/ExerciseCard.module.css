@@ -14,3 +14,10 @@
   text-align: center;
 }
 
+.headerContainer {
+  display: flex;
+}
+
+.closeButton {
+  margin-left: auto;
+}
