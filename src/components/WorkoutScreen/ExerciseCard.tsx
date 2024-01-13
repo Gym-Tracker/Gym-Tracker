@@ -26,6 +26,12 @@ export default function ExerciseCard({ exercise, updateExercise }: props) {
     updateExercise(newExercise);
   }
 
+  function removeSet(index: number) {
+    let newExercise: ActiveExercise = exercise;
+    newExercise.sets = exercise.sets.slice(0, index).concat(exercise.sets.slice(index+1));
+    updateExercise(newExercise);
+  }
+
   return (
     <div className={styles.card}>
       <div>{exercises[exercise.id]}</div>
@@ -35,6 +41,7 @@ export default function ExerciseCard({ exercise, updateExercise }: props) {
           <th>kg</th>
           <th>Reps</th>
           <th>done</th>
+          <th></th>
         </tr>
         {
           exercise.sets.map((set, index) =>
@@ -56,9 +63,11 @@ export default function ExerciseCard({ exercise, updateExercise }: props) {
               </td>
               <td><input 
                   type="checkbox"
+                  checked={set.done}
                   onChange={(isDone) => updateSet({...set, done: isDone.target.checked}, index)}
                 />
               </td>
+              <td><div onClick={() => removeSet(index)}>x</div></td>
             </tr>
           )
         }
