@@ -53,8 +53,9 @@ export default function ExerciseCard({ exercise, updateExercise, removeExercise:
               <td>{set.type}</td>
               <td><input 
                   pattern="[0-9]*" 
-                  type="number" 
-                  value={set.weight} 
+                  type="number"
+                  value={set.weight}
+                  onFocus={e => e.target.select()}
                   onChange={(newWeight) => updateSet({...set, weight: parseFloat(newWeight.target.value)}, index)}
                 />
               </td>
@@ -62,6 +63,7 @@ export default function ExerciseCard({ exercise, updateExercise, removeExercise:
                   pattern="[0-9]*" 
                   type="number" 
                   value={set.reps}
+                  onFocus={e => e.target.select()}
                   onChange={(newReps) => updateSet({...set, reps: parseInt(newReps.target.value)}, index)}
                 />
               </td>
