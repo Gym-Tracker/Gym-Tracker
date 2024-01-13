@@ -41,7 +41,11 @@ export default function ExerciseList({ setExerciseListOpen, selectExercise }: pr
         <input className={styles.search} value={search} onChange={(e) => handleInputChange(e)}></input>
         { filteredExerciseList.map((exerciseDetails) => 
             <>
-              <ExerciseInfoCard exerciseDetails={exerciseDetails} selectExercise={selectExercise}/>
+              <ExerciseInfoCard 
+                exerciseDetails={exerciseDetails} 
+                selectExercise={selectExercise} 
+                setExerciseListOpen={setExerciseListOpen}
+              />
               <div className={styles.divider}></div>
             </>
           ) 
