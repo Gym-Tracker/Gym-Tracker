@@ -17,6 +17,7 @@ function App() {
   const [settingsOpen, setSettingsOpen] = useState<boolean>(false);
   const [exerciseListOpen, setExerciseListOpen] = useState<boolean>(false);
   const [activeWorkout, setActiveWorkout] = useState<ActiveWorkout>(routineToActiveWorkout(routine));
+  const [loggedIn, setLoggedIn] = useState<boolean>(false);
 
   function selectExercise(id: number) {
     setActiveWorkout({
@@ -53,7 +54,7 @@ function App() {
       </div>
       { settingsOpen && <MaxWeightSettings setSettingsOpen={setSettingsOpen}/> }
       { exerciseListOpen && <ExerciseList setExerciseListOpen={setExerciseListOpen} selectExercise={selectExercise}/> }
-      <LoginScreen/>
+      { !loggedIn && <LoginScreen setLoggedIn={setLoggedIn}/> }
     </>
   )
 }

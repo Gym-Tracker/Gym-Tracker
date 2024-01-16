@@ -1,7 +1,11 @@
 import { useState } from "react"
 import styles from "./LoginScreen.module.css"
 
-export default function LoginScreen() {
+interface props {
+  setLoggedIn: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export default function LoginScreen({ setLoggedIn }: props) {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
@@ -23,7 +27,7 @@ export default function LoginScreen() {
             value={password}
             onChange={e => setPassword(e.target.value)}
           />
-          <div className={styles.button}>Log In</div>
+          <div className={styles.button} onClick={() => setLoggedIn(true)}>Log In</div>
         </form>
         <div>Don't have an account? Create One</div>
       </div>
