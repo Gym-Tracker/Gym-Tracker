@@ -9,6 +9,7 @@ import ExerciseList from './components/ExerciseList/ExerciseList'
 import { ActiveWorkout } from './types'
 import { routine } from './Routines'
 import { routineToActiveWorkout } from './ExerciseTypeConversions'
+import LoginScreen from './components/LoginScreen/LoginScreen'
 
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
       </div>
       { settingsOpen && <MaxWeightSettings setSettingsOpen={setSettingsOpen}/> }
       { exerciseListOpen && <ExerciseList setExerciseListOpen={setExerciseListOpen} selectExercise={selectExercise}/> }
+      <LoginScreen/>
     </>
   )
 }
