@@ -12,7 +12,7 @@ interface props {
 export default function WorkoutScreen({ setExerciseListOpen, activeWorkout, setActiveWorkout, removeExercise: removeExercise }: props) {
 
   function submitWorkout() {
-      fetch("http://127.0.0.1:8080/workout", {
+      fetch(import.meta.env.VITE_SERVER_URL + "/workout", {
       method: "POST",
       body: JSON.stringify(activeWorkoutToWorkout(activeWorkout)),
       headers: { "Content-Type": "application/json" }

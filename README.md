@@ -9,6 +9,7 @@ A front-end web application for following Jim Wendler's 5/3/1 workout program.
   ```
   npm install
   ```
+- Add `.env.local` file to the root containing `VITE_SERVER_URL=` and then the url of the back-end server
 - Run dev server on localhost
   ```
   npm run dev
