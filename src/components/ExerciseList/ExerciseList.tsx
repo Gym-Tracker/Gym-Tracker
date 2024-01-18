@@ -14,7 +14,7 @@ export default function ExerciseList({ setExerciseListOpen, selectExercise }: pr
   const exerciseList = useRef<ExerciseDetails[]>([]);
   
   async function printJSON() {
-    const response = await fetch("src/exercises.json");
+    const response = await fetch("src/exercises.json", { credentials: "include" });
     exerciseList.current = await response.json();
     setFilteredExercistList(exerciseList.current);
   }

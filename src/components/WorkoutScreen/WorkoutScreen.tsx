@@ -14,6 +14,7 @@ export default function WorkoutScreen({ setExerciseListOpen, activeWorkout, setA
   function submitWorkout() {
       fetch(import.meta.env.VITE_SERVER_URL + "/workout", {
       method: "POST",
+      credentials: "include",
       body: JSON.stringify(activeWorkoutToWorkout(activeWorkout)),
       headers: { "Content-Type": "application/json" }
     })

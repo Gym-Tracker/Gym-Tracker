@@ -12,6 +12,7 @@ export default function LoginScreen({ setLoggedIn }: props) {
   async function logIn() {
     const response = await fetch(import.meta.env.VITE_SERVER_URL + "/login", {
       method: "POST",
+      credentials: "include",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         email: email,

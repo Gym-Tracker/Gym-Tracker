@@ -53,7 +53,7 @@ export default function HomeScreen() {
   const [workouts, setWorkouts] = useState<Workout[]>([workout, workout, workout])
 
   async function getWorkouts() {
-    const response = await fetch(import.meta.env.VITE_SERVER_URL + "/workout");
+    const response = await fetch(import.meta.env.VITE_SERVER_URL + "/workout", { credentials: "include" });
     const workoutsResponse: Workout[] = await response.json();
 
     // Dates of workouts come as strings and need to be Date objects
