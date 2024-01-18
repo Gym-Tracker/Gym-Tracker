@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import TopBar from './components/TopBar'
 import BottomBar from './components/BottomBar'
@@ -18,6 +18,21 @@ function App() {
   const [exerciseListOpen, setExerciseListOpen] = useState<boolean>(false);
   const [activeWorkout, setActiveWorkout] = useState<ActiveWorkout>(routineToActiveWorkout(routine));
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (document.cookie.length > 0) {
+      sessionLogIn();
+    }
+  }, [])
+
+  async function sessionLogIn() {
+    const response = await fetch(import.meta.env.VITE_SERVER_URL + "/session", {
+      method: "POST",
+      credentials: "include"}
+    )
+    const json = await response.json();
+    setLoggedIn(json);
+  }
 
   function selectExercise(id: number) {
     setActiveWorkout({
