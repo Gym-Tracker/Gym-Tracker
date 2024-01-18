@@ -51,7 +51,7 @@ function App() {
 
   return (
     <>
-      <TopBar setSettingsOpen={setSettingsOpen}/>
+      <TopBar setSettingsOpen={setSettingsOpen} setLoggedIn={setLoggedIn}/>
       <BottomBar
         workoutStarted={workoutStarted}
         setWorkoutStarted={setWorkoutStarted}        
