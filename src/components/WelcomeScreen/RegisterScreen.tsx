@@ -12,9 +12,16 @@ export default function LoginScreen({ setLoggedIn, setRegistering }: props) {
   const [confirmPassword, setConfirmPassword] = useState<string>("");
 
   const [emailExists, setEmailExists] = useState<boolean>(false);
+  const [passwordsMatch, setPasswordsMatch] = useState<boolean>(true);
 
   async function register() {
     if (email.length == 0 || password.length == 0) return
+    if (password == confirmPassword) {
+      setPasswordsMatch(true);
+    } else {
+      setPasswordsMatch(false);
+      return;
+    }
 
     const response = await fetch(import.meta.env.VITE_SERVER_URL + "/register", {
       method: "POST",
@@ -58,7 +65,7 @@ export default function LoginScreen({ setLoggedIn, setRegistering }: props) {
           value={email}
           onChange={e => setEmail(e.target.value)}
         />
-        { emailExists && <div className={styles.warningMessage}>This email is already in use.</div> }
+        { emailExists && <div className={styles.warningMessage}>This email is already in use</div> }
         <input
           className={styles.formInput}
           type="password"
@@ -73,6 +80,7 @@ export default function LoginScreen({ setLoggedIn, setRegistering }: props) {
           value={confirmPassword}
           onChange={e => setConfirmPassword(e.target.value)}
         />
+        { !passwordsMatch && <div className={styles.warningMessage}>Passwords do not match</div> }
         <div className={styles.button} onClick={register}>Register</div>
       </form>
       <div onClick={() => setRegistering(false)}>Have an account? Log In</div>
