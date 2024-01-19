@@ -14,7 +14,7 @@ export default function LoginScreen({ setLoggedIn, setRegistering }: props) {
   async function register() {
     if (email.length == 0 || password.length == 0) return
 
-    fetch(import.meta.env.VITE_SERVER_URL + "/register", {
+    const response = await fetch(import.meta.env.VITE_SERVER_URL + "/register", {
       method: "POST",
       credentials: "include",
       headers: { "Content-Type": "application/json" },
@@ -24,7 +24,9 @@ export default function LoginScreen({ setLoggedIn, setRegistering }: props) {
       })
     });
 
-    fetch(import.meta.env.VITE_SERVER_URL + "/login", {
+    console.log(response);
+
+    const response2 = await fetch(import.meta.env.VITE_SERVER_URL + "/login", {
       method: "POST",
       credentials: "include",
       headers: { "Content-Type": "application/json" },
@@ -33,6 +35,8 @@ export default function LoginScreen({ setLoggedIn, setRegistering }: props) {
         password: password
       })
     });
+
+    console.log(response2);
 
     setLoggedIn(true);
   }
