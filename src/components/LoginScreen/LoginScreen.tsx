@@ -16,6 +16,8 @@ export default function LoginScreen({ setLoggedIn }: props) {
   const [loggingIn, setLoggingIn] = useState<boolean>(false);
 
   async function logIn() {
+    if (email.length == 0 || password.length == 0) return
+
     const response = await fetch(import.meta.env.VITE_SERVER_URL + "/login", {
       method: "POST",
       credentials: "include",
@@ -32,6 +34,8 @@ export default function LoginScreen({ setLoggedIn }: props) {
   }
 
   async function register() {
+    if (email.length == 0 || password.length == 0) return
+
     fetch(import.meta.env.VITE_SERVER_URL + "/register", {
       method: "POST",
       credentials: "include",
