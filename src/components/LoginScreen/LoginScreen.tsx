@@ -34,7 +34,7 @@ export default function LoginScreen({ setLoggedIn }: props) {
   }
 
   async function register() {
-    if (email.length == 0 || password.length == 0) return
+    if (newEmail.length == 0 || newPassword.length == 0) return
 
     fetch(import.meta.env.VITE_SERVER_URL + "/register", {
       method: "POST",
