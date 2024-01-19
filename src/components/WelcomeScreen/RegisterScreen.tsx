@@ -11,6 +11,8 @@ export default function LoginScreen({ setLoggedIn, setRegistering }: props) {
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setConfirmPassword] = useState<string>("");
 
+  const [emailExists, setEmailExists] = useState<boolean>(false);
+
   async function register() {
     if (email.length == 0 || password.length == 0) return
 
@@ -24,7 +26,13 @@ export default function LoginScreen({ setLoggedIn, setRegistering }: props) {
       })
     });
 
-    console.log(response);
+    const json = await response.json();
+    // returning false means there was an SQL exception on the server, 
+    // I think this could only happen if an email exists
+    if (json == false) {
+      setEmailExists(true);
+      return;
+    }
 
     const response2 = await fetch(import.meta.env.VITE_SERVER_URL + "/login", {
       method: "POST",
@@ -50,6 +58,7 @@ export default function LoginScreen({ setLoggedIn, setRegistering }: props) {
           value={email}
           onChange={e => setEmail(e.target.value)}
         />
+        { emailExists && <div className={styles.warningMessage}>This email is already in use.</div> }
         <input
           className={styles.formInput}
           type="password"
