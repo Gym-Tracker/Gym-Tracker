@@ -78,7 +78,7 @@ export default function LoginScreen({ setLoggedIn }: props) {
                 />
                 <div className={styles.button} onClick={logIn}>Log In</div>
               </form>
-              <div>Don't have an account? Create One</div>
+              <div onClick={() => setLoggingIn(false)}>Don't have an account? Create One</div>
             </>
           :
             <>
@@ -105,7 +105,7 @@ export default function LoginScreen({ setLoggedIn }: props) {
                 />
                 <div className={styles.button} onClick={register}>Register</div>
               </form>
-              <div>Have an account? Log In</div>
+              <div onClick={() => setLoggingIn(true)}>Have an account? Log In</div>
             </>
         }
       </div>
