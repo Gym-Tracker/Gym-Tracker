@@ -23,9 +23,9 @@ export default function LoginScreen({ setLoggedIn, setRegistering }: props) {
       })
     });
 
-    const loggenIn: boolean = await response.json();
+    const loggedIn: boolean = await response.json();
 
-    setLoggedIn(loggenIn);
+    setLoggedIn(loggedIn);
   }
 
   return (
