@@ -15,7 +15,7 @@ function WorkoutCard({ workout }: { workout: Workout }) {
         {
           workout.exercises.map((exercise) =>
             <tr>
-              <td>{`${exercise.sets.length} x ${exercises[exercise.id]}`}</td>
+              <td>{`${exercise.sets.length} x ${exercises.find(obj => obj.id == exercise.id)?.name}`}</td>
               <td>{`${highestWeightSet(exercise.sets).weight} kg x ${highestWeightSet(exercise.sets).reps}`}</td>
             </tr>
           )

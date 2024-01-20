@@ -3,7 +3,7 @@ import { Routine } from "./types";
 export const routine : Routine = {
   exercises: [
     {
-      id: 2,
+      id: "3_4_Sit-Up",
       sets: [
         {
           type: 0,
@@ -28,7 +28,7 @@ export const routine : Routine = {
       ]
     },
     {
-      id: 1,
+      id: "Alternate_Hammer_Curl",
       sets: [
         {
           type: 0,

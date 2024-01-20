@@ -3,7 +3,7 @@ import styles from "./ExerciseInfoCard.module.css"
 
 interface props {
   exerciseDetails: ExerciseDetails
-  selectExercise: (id: number) => void
+  selectExercise: (id: string) => void
   setExerciseListOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 

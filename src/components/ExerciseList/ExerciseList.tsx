@@ -5,7 +5,7 @@ import ExerciseInfoCard from "./ExerciseInfoCard";
 
 interface props {
   setExerciseListOpen: React.Dispatch<React.SetStateAction<boolean>>
-  selectExercise: (id: number) => void
+  selectExercise: (id: string) => void
 }
 
 export default function ExerciseList({ setExerciseListOpen, selectExercise }: props) {
@@ -14,7 +14,7 @@ export default function ExerciseList({ setExerciseListOpen, selectExercise }: pr
   const exerciseList = useRef<ExerciseDetails[]>([]);
   
   async function printJSON() {
-    const response = await fetch("src/exercises.json", { credentials: "include" });
+    const response = await fetch("src/exercises.json");
     exerciseList.current = await response.json();
     setFilteredExercistList(exerciseList.current);
   }

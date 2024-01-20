@@ -36,7 +36,7 @@ export default function ExerciseCard({ exercise, updateExercise, removeExercise:
   return (
     <div className={styles.card}>
       <div className={styles.headerContainer}>
-        <div>{exercises[exercise.id]}</div>
+        <div>{exercises.find(obj => obj.id == exercise.id)?.name}</div>
         <div className={styles.closeButton} onClick={removeExercise}>X</div>
       </div>
       <table className={styles.table}>
