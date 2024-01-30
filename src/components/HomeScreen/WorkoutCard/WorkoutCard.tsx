@@ -1,7 +1,7 @@
 import styles from './WorkoutCard.module.css'
 import { Workout } from '../../../types'
 import { highestWeightSet } from './WorkoutCardHelper'
-import { exercises } from '../../../Exercises'
+import { getExerciseName } from '../../../Exercises'
 
 function WorkoutCard({ workout }: { workout: Workout }) {
   return (
@@ -15,7 +15,7 @@ function WorkoutCard({ workout }: { workout: Workout }) {
         {
           workout.exercises.map((exercise) =>
             <tr>
-              <td>{`${exercise.sets.length} x ${exercises.find(obj => obj.id == exercise.id)?.name}`}</td>
+              <td>{`${exercise.sets.length} x ${getExerciseName(exercise.id)}`}</td>
               <td>{`${highestWeightSet(exercise.sets).weight} kg x ${highestWeightSet(exercise.sets).reps}`}</td>
             </tr>
           )

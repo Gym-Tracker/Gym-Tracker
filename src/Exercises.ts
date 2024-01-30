@@ -9,3 +9,11 @@ async function getExercises() {
 }
 
 getExercises();
+
+export function getExercise(id: number) {
+  return exercises.find(obj => obj.id == id)
+}
+
+export function getExerciseName(id: number) {
+  return exercises.find(obj => obj.id == id)?.name
+}
