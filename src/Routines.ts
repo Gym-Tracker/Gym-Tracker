@@ -47,6 +47,26 @@ export const routine : Routine = {
           reps: 8
         }
       ]
+    },
+    {
+      id: 874,
+      sets: [
+        {
+          type: 0,
+          weight: 25,
+          reps: 5
+        },
+        {
+          type: 0,
+          weight: 27.5,
+          reps: 5
+        },
+        {
+          type: 0,
+          weight: 32.5,
+          reps: 8
+        }
+      ]
     }
   ]
 }

@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { Workout } from '../../types'
 import WorkoutCard from "./WorkoutCard/WorkoutCard"
+import RoutineCard from './RoutineCard/RoutineCard'
+import { routine } from '../../Routines'
 
 const workout : Workout = {
   date: new Date(),
@@ -66,8 +68,8 @@ export default function HomeScreen() {
 
   return (
     <>
-      <div className='header'>Next Workout</div>
-      <WorkoutCard workout={workout}/>
+      <div className='header'>Routines</div>
+      <RoutineCard routine={routine}/>
       <div className='header'>History</div>
       <div onClick={getWorkouts}>refresh</div>
       { workouts.map((workout) => <WorkoutCard workout={workout}/>) }
