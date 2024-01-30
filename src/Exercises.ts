@@ -4,7 +4,8 @@ export let exercises: ExerciseDetails[] = [];
 
 async function getExercises() {
   const response = await fetch("src/exercises.json");
-  exercises = await response.json();  
+  const json = await response.json();  
+  exercises = json.exercises;
 }
 
 getExercises();

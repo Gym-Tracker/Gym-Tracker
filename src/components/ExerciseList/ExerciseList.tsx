@@ -2,26 +2,17 @@ import { useEffect, useState, useRef } from "react";
 import { ExerciseDetails } from "../../types";
 import styles from './ExerciseList.module.css'
 import ExerciseInfoCard from "./ExerciseInfoCard";
+import { exercises } from "../../Exercises";
 
 interface props {
   setExerciseListOpen: React.Dispatch<React.SetStateAction<boolean>>
-  selectExercise: (id: string) => void
+  selectExercise: (id: number) => void
 }
 
 export default function ExerciseList({ setExerciseListOpen, selectExercise }: props) {
   const [search, setSearch] = useState<string>("");
-  const [filteredExerciseList, setFilteredExercistList] = useState<ExerciseDetails[]>([]);
-  const exerciseList = useRef<ExerciseDetails[]>([]);
-  
-  async function printJSON() {
-    const response = await fetch("src/exercises.json");
-    exerciseList.current = await response.json();
-    setFilteredExercistList(exerciseList.current);
-  }
-  
-  useEffect(() => {
-    printJSON();
-  }, [])
+  const [filteredExerciseList, setFilteredExercistList] = useState<ExerciseDetails[]>(exercises);
+  const exerciseList = useRef<ExerciseDetails[]>(exercises);
 
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
     const searchValue = e.target.value;

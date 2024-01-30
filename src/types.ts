@@ -5,7 +5,7 @@ export interface Workout {
 }
 
 export interface Exercise {
-  id: string;
+  id: number;
   sets: Set[];
 }
 
@@ -26,7 +26,7 @@ export interface ActiveWorkout {
 }
 
 export interface ActiveExercise {
-  id: string;
+  id: number;
   sets: ActiveSet[];
 }
 
@@ -46,5 +46,5 @@ export interface ExerciseDetails {
   instructions: string[],
   category: string,
   images: string[],
-  id: string
+  id: number
 }

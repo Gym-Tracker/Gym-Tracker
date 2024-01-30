@@ -7,7 +7,7 @@ const workout : Workout = {
   duration: 3600,
   exercises: [
     {
-      id: "3_4_Sit-Up",
+      id: 3,
       sets: [
         {
           type: 0,
@@ -27,7 +27,7 @@ const workout : Workout = {
       ]
     },
     {
-      id: "Alternate_Hammer_Curl",
+      id: 1,
       sets: [
         {
           type: 0,

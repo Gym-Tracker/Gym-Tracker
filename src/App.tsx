@@ -34,7 +34,7 @@ function App() {
     setLoggedIn(json);
   }
 
-  function selectExercise(id: string) {
+  function selectExercise(id: number) {
     setActiveWorkout({
       exercises: [...activeWorkout.exercises,{
         id: id,
