@@ -17,6 +17,7 @@ export interface Set {
 
 
 export interface Routine {
+  name: string;
   exercises: Exercise[];
 }
 

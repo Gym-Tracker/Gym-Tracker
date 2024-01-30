@@ -1,6 +1,7 @@
 import { Routine } from "./types";
 
 export const routine : Routine = {
+  name: "Workout A",
   exercises: [
     {
       id: 2,
