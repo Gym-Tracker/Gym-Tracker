@@ -1,14 +1,8 @@
 import { ExerciseDetails } from "./types";
 
-export let exercises: ExerciseDetails[] = [];
+import json from './exercises.json';
 
-async function getExercises() {
-  const response = await fetch("src/exercises.json");
-  const json = await response.json();  
-  exercises = json.exercises;
-}
-
-getExercises();
+export const exercises: ExerciseDetails[] = json.exercises;
 
 export function getExercise(id: number) {
   return exercises.find(obj => obj.id == id)
