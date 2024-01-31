@@ -2,6 +2,7 @@ import { ActiveWorkout, Routine, Workout } from "./types";
 import { activeWorkoutToWorkout, routineToActiveWorkout } from "./ExerciseTypeConversions";
 
 const routine : Routine = {
+  name: "woop",
   exercises: [
     {
       id: 2,
