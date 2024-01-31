@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useState, useRef } from "react";
 import { ExerciseDetails } from "../../types";
 import styles from './ExerciseList.module.css'
 import ExerciseInfoCard from "./ExerciseInfoCard";

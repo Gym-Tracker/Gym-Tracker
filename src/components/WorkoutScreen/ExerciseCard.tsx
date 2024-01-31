@@ -1,6 +1,6 @@
 import { ActiveExercise, ActiveSet } from '../../types'
 import styles from './ExerciseCard.module.css'
-import { exercises, getExercise, getExerciseName } from '../../Exercises'
+import { getExerciseName } from '../../Exercises'
 
 interface props {
   exercise: ActiveExercise
