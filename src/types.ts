@@ -38,14 +38,13 @@ export interface ActiveSet extends Set {
 
 export interface ExerciseDetails {
   name: string,
-  force: string,
+  force: string|null,
   level: string,
-  mechanic: string,
-  equipment: string,
+  mechanic: string|null,
+  equipment: string|null,
   primaryMuscles: string[],
   secondaryMuscles: string[],
   instructions: string[],
   category: string,
-  images: string[],
   id: number
 }
